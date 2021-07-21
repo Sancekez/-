@@ -1,0 +1,21 @@
+mixin productBlock(data)
+	.product-block&attributes(attributes)
+		._img
+			._special 
+				!=data.special
+			a(href="#").product-block__img-link
+				//+webp(data.img)
+				img(src=data.img, alt="")
+			._icons
+				a(href="#")._icon
+					+svg('libra')
+				a(href="#")._icon
+					+svg('heart')
+		._wrap
+			._info
+				!=data.info
+			._cost-items 
+				._cost
+					!=data.cost
+				a(href="#")._cost-cart 
+					+svg('cart')

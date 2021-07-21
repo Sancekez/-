@@ -1,0 +1,158 @@
+.pagination {
+	@include flex(center, center, center, nowrap);
+	&__counter {
+		@include flex(0, center, center, nowrap);
+		&-label {
+			margin-right: 18px;
+			color: #495756;
+			font: 15px $baseFF;
+		}
+	}
+	&__next,
+	&__prev {
+		margin-right: 20px;
+		a {
+			width: 50px;
+			height: 50px;
+			border-radius: 2px;
+			border: 1px solid $gray-border;
+			@include flex(center, center, center);
+			svg {
+				font-size: 14px;
+				fill: $gray_dark;
+				display: block;
+				@include time();
+			}
+
+			&:hover,
+			&:active {
+				svg {
+					fill: $green;
+				}
+			}
+		}
+	}
+	&__next {
+		margin-left: auto;
+	}
+	&__prev {
+		margin-right: auto;
+		svg {
+			transform: rotate(180deg);
+		}
+	}
+	&__list {
+		@include flex(0, center, center, nowrap);
+		flex: 0 1 auto;
+	}
+	&__item {
+		margin: 0 5px;
+		font: 15px $baseFF;
+		span,
+		a {
+			width: 50px;
+			height: 50px;
+			border-radius: 2px;
+			@include flex(center, center, center);
+			color: $gray-dark;
+			border: 1px solid $gray-border;
+			border-radius: 2px;
+			background: transparent;
+			text-align: center;
+			@include time();
+		}
+		span {
+			background: $blue;
+			color: $white;
+		}
+
+		&.is-active {
+			a {
+				background: $blue;
+				color: $white;
+			}
+		}
+	}
+
+	/* &--news-view {
+		@include flex(space-between, center, center, nowrap);
+	}
+	&--news-view & {
+		&__next,
+		&__prev {
+			flex: 1 1 auto;
+			@include flex(0, center, center, nowrap);
+			margin: 0;
+			color: #767676;
+			font: 500 13px $baseFF;
+			span {
+				margin-left: 20px;
+			}
+		}
+		&__next {
+			@include flex(flex-end, center, center, nowrap);
+			margin: 0;
+			span {
+				margin: 0 20px 0 0;
+			}
+		}
+	} */
+
+	@include media($md) {
+		@include flex(space-between, center, center, nowrap);
+		&__prev {
+			margin-right: 15px;
+			flex: 1 1 auto;
+		}
+		&__next {
+			margin-left: 15px;
+			flex: 1 1 auto;
+			@include flex(flex-end);
+		}
+
+		&--news-view & {
+			&__next,
+			&__prev {
+				flex: 1 1 auto;
+				@include flex(0, center, center, nowrap);
+				margin: 0;
+			}
+			&__next {
+				@include flex(flex-end, center, center, nowrap);
+				margin: 0;
+			}
+		}
+	}
+
+	@include media($xs) {
+		justify-content: center;
+		flex-wrap: wrap;
+		&__counter {
+			flex: 0 0 100%;
+			margin-bottom: 16px;
+			&-label {
+				margin-right: 16px;
+				flex: 1 1 auto;
+				font: 14px $baseFF;
+			}
+		}
+		&__item {
+			margin: 0 3px;
+			font: 14px $baseFF;
+
+			span,
+			a {
+				width: 40px;
+				height: 40px;
+			}
+		}
+		&__list {
+			flex: 0 0 100%;
+			justify-content: center;
+		}
+		&__next,
+		&__prev {
+			display: none;
+		}
+	}
+}

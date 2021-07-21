@@ -1,0 +1,80 @@
+.footer {
+	padding: 48px 0 67px 0;
+	background: url("../images/bg-main.png");
+	color: $text-gray;
+	border-top: 2px solid #65606c;
+	&__slogan {
+		color: #828480;
+		font: 14px/24px $baseFF;
+		white-space: nowrap;
+	}
+	&__menu {
+		&-item {
+			font: 16px/24px $baseFF;
+			margin-bottom: 3px;
+			&:last-child {
+				margin-bottom: 0;
+			}
+			a {
+				&:hover {
+					text-decoration: underline;
+				}
+			}
+		}
+	}
+	&__title {
+		margin-bottom: 15px;
+		font: 500 24px/24px $baseFF;
+	}
+
+	&__row {
+		@include flex(space-between);
+	}
+	@include media($md) {
+		&__row {
+			justify-content: space-between;
+		}
+		&__logo-col {
+			margin-bottom: 15px;
+		}
+		&__menu {
+			margin-bottom: 15px;
+			@include flex(center, 0, 0, 0, column);
+		}
+	}
+
+	@include media($sm) {
+		padding: 20px 0 40px;
+		&__title {
+			font: 500 20px/20px $baseFF;
+		}
+		&__menu {
+			&-item {
+				font: 15px/20px $baseFF;
+			}
+		}
+	}
+
+	@include media($xs) {
+		padding: 20px 0 20px;
+		&__row {
+			justify-content: center;
+		}
+		&__menu {
+			text-align: center;
+			margin-bottom: 20px;
+		}
+		&__logo-col {
+			margin-bottom: 20px;
+			text-align: center;
+		}
+		&__title {
+			font: 500 19px/20px $baseFF;
+		}
+		&__menu {
+			&-item {
+				font: 14px/20px $baseFF;
+			}
+		}
+	}
+}

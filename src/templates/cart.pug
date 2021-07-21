@@ -1,0 +1,27 @@
+extends extends/base.pug
+
+block styles
+	
+block content
+	include ../components/main-section/template
+	include ../components/table/template
+
+	+mainSection({
+		bread: [{url: '#', title: 'корзина'}]
+	}).main-section--cart
+		._container.container--sm
+			.main-section__head
+				h1.main-section__title.title-h2 ваша корзина
+				a.main-section__head-link(href="#") вернутся к каталогу
+			+tableNews()
+			.main-section__total
+				.main-section__total-body
+					.main-section__total-title.title-h4 итого
+					+tableTotal()
+					.main-section__total-button 
+						a(href="#").btn.btn--blue оформить заказ
+
+	include ../components/footer/template  
+	+footer()
+
+block scripts 

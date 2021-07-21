@@ -1,0 +1,157 @@
+.popup {
+	position: fixed;
+	top: 0;
+	left: -10000px;
+	width: 100%;
+	z-index: 9999;
+	height: 100%;
+	display: block;
+	visibility: hidden;
+	pointer-events: none;
+	opacity: 0;
+	padding: 170px 15px;
+	overflow-y: auto;
+	//@include time(0.4s, opacity);
+	transition: left 0s ease 0.5s, opacity 0.1s ease;
+
+	&__overflow {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		z-index: -1;
+		display: block;
+		background: rgba($black, 0.68);
+	}
+
+	&__wrapper {
+		position: relative;
+		width: 100%;
+		padding: 30px;
+		max-width: 470px;
+		margin: auto;
+		z-index: 1;
+		background: $white;
+		border: 4px solid $blue;
+		border-radius: 5px;
+		transform: translateY(150px) rotateX(-85deg);
+		opacity: 0;
+		@include time(0.4s);
+		perspective: 1000px;
+		perspective-origin: 50% 50%;
+	}
+
+	&__close {
+		cursor: pointer;
+		position: absolute;
+		z-index: 10;
+		top: 20px;
+		right: 20px;
+		margin: 0;
+		padding: 0;
+		visibility: visible;
+		@include time();
+
+		svg {
+			fill: $gray-dark;
+			font-size: 12px;
+		}
+	}
+	&__title {
+		padding-bottom: 20px;
+		font: $title-h5;
+		text-transform: uppercase;
+		color: $black;
+		border-bottom: 1px solid $gray-border;
+	}
+	&__desc {
+		text-align: center;
+		margin-bottom: 32px;
+		font: $fs-16;
+		color: $text-green-dark;
+	}
+	&__input {
+		margin-bottom: 20px;
+	}
+	&__form {
+		margin: 0 auto;
+		max-width: 402px;
+	}
+	&__buttons {
+		margin-top: 30px;
+	}
+
+	&.active {
+		opacity: 1;
+		visibility: visible;
+		left: 0;
+		pointer-events: auto;
+		transition: left 0s ease, opacity 0.1s ease;
+	}
+	&.active & {
+		&__wrapper {
+			transform: translateY(0) scale(1, 1) rotateX(0);
+			opacity: 1;
+		}
+	}
+
+	&--login & {
+		&__title {
+			margin-bottom: 20px;
+		}
+		&__buttons {
+			@include flex(center);
+			margin-bottom: -16px;
+			.btn {
+				margin: 0 7px 16px;
+
+				&:first-child {
+					margin-left: 0;
+				}
+				&:last-child {
+					margin-right: 0;
+				}
+			}
+		}
+	}
+
+	&--call & {
+		&__title {
+			border-bottom: 0;
+		}
+	}
+	&--director & {
+		&__close {
+			svg {
+				fill: $white;
+			}
+		}
+		&__title {
+			text-transform: uppercase;
+			color: $white;
+			font: 600 18px/1.1 $baseFF;
+			margin-bottom: 15px;
+			border-bottom: none;
+		}
+		&__wrapper {
+			background: transparent;
+			border: none;
+		}
+	}
+	@include media($md) {
+	}
+
+	@include media($sm) {
+		&__close {
+			top: 10px;
+			right: 10px;
+		}
+		&__wraper {
+			padding-left: 10px;
+			padding-right: 10px;
+		}
+	}
+	@include media($xs) {
+	}
+}

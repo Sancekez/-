@@ -1,0 +1,7 @@
+mixin searchBlock(data)
+	.search-block&attributes(attributes)
+		button._btn
+			+svg('search')
+		input._input(type="text" placeholder=data.placeholder)
+		a._close.js-search-mob-hide(href="#")
+			+svg('close')

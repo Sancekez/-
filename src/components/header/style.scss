@@ -1,0 +1,313 @@
+.header {
+	background: url("../images/bg-main.png");
+	position: relative;
+	z-index: 10;
+	box-shadow: $cards-bg;
+	// height: 195px;
+	// #top_nav{
+	// 	top: 140px; 
+	// 	position: fixed;
+	// 	z-index: 1000;
+	// 	width: 100%;
+	// }
+	&__body {
+		padding: 27px 0 18px;
+		min-height: 135px;
+		&-content {
+			max-width: 900px;
+			@include flex(space-between, center, center, nowrap);
+			flex: 1 1 auto;
+		}
+	}
+	&__logo {
+		display: block;
+		svg,
+		img {
+			display: block;
+			max-width: 194px;
+		}
+	}
+	&__item {
+		font: 16px/12px $baseFF;
+		img {
+			margin-bottom: 12px;
+		}
+		@include flex(center, center, center, 0, column);
+		&-number {
+			color: $text-gray;
+			display: none;
+		}
+	}
+	&__numbers {
+		@include flex();
+		flex: 0 1 560px;
+		a {
+			&:hover {
+				text-decoration: underline;
+			}
+		}
+	}
+	&__number {
+		@include flex(center, center, center);
+		margin-right: 30px;
+		margin-bottom: 6px;
+		svg {
+			font-size: 20px;
+		}
+		span {
+			margin-left: 8px;
+		}
+	}
+	&__user {
+		@include flex(center, center);
+		svg {
+			font-size: 30px;
+		}
+		span {
+			margin-left: 6px;
+		}
+	}
+	&__language-link {
+		@include flex(center, center);
+	}
+	&__user-link {
+		margin-left: 18px;
+		svg {
+			font-size: 23px;
+		}
+	}
+	&__slogan {
+		color: #828480;
+		font: 14px/24px $baseFF;
+		white-space: nowrap;
+	}
+	&__search {
+		flex: 1 1 auto;
+	}
+	&__search-mob {
+		display: none;
+		&.is-active {
+			display: block;
+			position: absolute;
+			top: 0;
+			left: 0;
+			z-index: 5;
+			background-color: $green-dark;
+			padding: 8px 50px 8px 13px;
+			bottom: 0;
+			max-width: 400px;
+			width: 100%;
+		}
+	}
+	&__contacts {
+		@include flex(flex-end, center, center, nowrap);
+		&-item {
+			margin-left: 42px;
+			/* &:first-child {
+				margin-left: 0;
+			} */
+		}
+	}
+	&__container {
+		@include flex(space-between, center, center, nowrap);
+	}
+	&__bottom {
+		background: $bg-gray;
+		padding: 13px 0;
+		&-body {
+			@include flex(space-between,center,0,nowrap);
+			width: 100%;
+		}
+		&.fixed {
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100%;
+		}
+	}
+	&__item {
+		margin-right: 15px;
+		&-slogan {
+			font-size: 14px;
+		}
+	}
+	&__menu {
+		flex: 1 1 328px;
+		//width: 72%;
+		@include flex(0, center,0,nowrap);
+		.btn {
+			width: 450px;
+			margin-right: 11px;
+		}
+		&-nav {
+			margin-left: 10px;
+		}
+	}
+	&__menu-burger {
+		margin-right: 30px;
+	}
+	&__burger {
+		display: none;
+	}
+
+	@include media($lg) {
+		&__logo {
+			&-wrap {
+				margin-right: 40px;
+			}
+		}
+		&__contacts {
+			&-item {
+				margin-left: 20px;
+				&:first-child {
+					margin-left: 20px;
+				}
+			}
+		}
+	}
+	@include media ($xlg) {
+		&__menu {
+			.btn {
+				display: none;
+			}
+		}
+	}
+	@include media($md) {
+		&__logo {
+			@include flex (center,center);
+			&-wrap {
+				margin-right: 20px;
+			}
+			svg,
+			img {
+				max-width: 120px;
+			}
+		}
+		&__slogan {
+			font-size: 12px;
+		}
+		&__contacts {
+			&-item {
+				margin-left: 15px;
+				&:first-child {
+					margin-left: 15px;
+				}
+			}
+		}
+		&__body {
+			&-content {
+				@include flex(flex-end, 0, 0, 0, 0);
+			}
+		}
+		&__menu {
+			flex: 1 1 auto;
+			flex-wrap: nowrap;
+		}
+		&__user {
+			display: none;
+		}
+	}
+
+	@include media($sm) {
+		/* &__menu {
+			display: none;
+			position: absolute;
+			top: 100%;
+			left: 0;
+			background: $white;
+			padding: 20px 15px;
+			width: 100%;
+			box-shadow: $cards-bg;
+			//&.is-active{ }
+		} */
+		&__menu-burger {
+			margin-right: 15px;
+		}
+		&__bottom {
+			.container {
+				position: relative;
+			}
+		}
+		&__burger {
+			display: block;
+		}
+		&__body {
+			&-content {
+				flex-wrap: wrap;
+			}
+		}
+		&__item {
+			margin-right: 0;
+			@include flex(0, center);
+			img {
+				margin-bottom: 0;
+				margin-right: 15px;
+				width: 30px;
+			}
+			&-slogan {
+				display: none;
+			}
+			&-number {
+				display: block;
+			}
+		}
+		&__search {
+			flex: 0 0 100%;
+			margin-bottom: 10px;
+			display: none;
+		}
+		&__contacts {
+			flex: 0 0 100%;
+			&-item {
+				margin-left: 16px;
+				&:first-child {
+					margin-left: 0;
+				}
+			}
+		}
+		&__numbers {
+			display: none;
+		}
+	}
+
+	@include media($xs) {
+		&__body {
+			padding: 13px 0;
+			flex-wrap: wrap;
+			&-content {
+				justify-content: center;
+			}
+		}
+		&__container {
+			flex-wrap: wrap;
+		}
+		&__logo {
+			flex: 0 0 100%;
+			&-wrap {
+				flex: 0 0 100%;
+				margin: 0 0 10px;
+				img {
+					margin: 0 auto;
+					display: block;
+				}
+			}
+		}
+		&__slogan {
+			text-align: center;
+		}
+		&__contacts {
+			flex: 0 0 100%;
+			@include flex(center, center, center);
+			&-item {
+				margin: 0;
+				flex: 0 0 50%;
+				max-width: 50%;
+				margin-bottom: 16px;
+				&:last-child {
+					margin-bottom: 0;
+					display: none;
+				}
+			}
+		}
+	}
+}

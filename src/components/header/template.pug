@@ -1,0 +1,66 @@
+//- include ../icon-inline/template
+include ../menu-block/template
+include ../nav-block/template
+include ../search-block/template
+include ../burger/template
+include ../popup/template
+
+mixin header(data)
+	header.header&attributes(attributes)
+		._body
+			._container.container
+				._logo-wrap
+					a(href="#")._logo
+						img(src="images/logo.png", alt="logo")
+					._slogan Интернет магазин керамической плитки
+				._body-content
+					a(href="#popup-call")._item.js-popup-show
+						img(src="images/call.png", alt="")
+						._item-slogan Обратная связь
+						._item-number <strong>+38 (044) 111-11-11</strong>
+					._numbers
+						._number
+							+svg('phone')
+							span +38 (044) 111-11-11
+						._number
+							+svg('lifecell')
+							span +38 (044) 111-11-11
+						a(href="#")._number
+							+svg('viber')
+							span Viber
+						._number
+							+svg('kyivstar')
+							span +38 (044) 111-11-11
+						._number
+							+svg('vodafon')
+							span +38 (044) 111-11-11
+						a(href="#")._number
+							+svg('telegram')
+							span Telegram
+					._user
+						a(href="#")._language-link
+							+svg('earth')
+							span UA
+						a(href="#popup-login")._user-link.js-popup-show
+							+svg('user')
+		+popupLogin()
+		+popupCall()
+
+
+					
+					
+						
+		div#top_nav._bottom  
+			._container.container
+				._bottom-body 
+					._menu
+						a(href="#").btn Каталог продукции
+						//- ._menu.js-mobile-menu
+						//- 	+menuBlock()
+						+burger().header__menu-burger
+						+searchBlock({
+							placeholder: 'введите артикул или бренд плитки'
+						}) 
+					+navBlock().header__menu-nav
+						
+

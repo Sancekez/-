@@ -1,0 +1,35 @@
+include ../form-block/template
+//- include ../upload-block/template
+//- include ../stars/template
+
+mixin popup(data)
+	.popup&attributes(attributes)
+		._overflow.js-popup-hide
+		._wrapper
+			a._close.js-popup-hide
+				+svg('close')
+			block
+
+mixin popupDuble(data)
+	.popup&attributes(attributes)
+		._overflow.js-popup-hide
+		._wrapper
+			a._close.js-popup-hide
+				+svg('close')
+			block
+
+mixin popupLogin(data)
+	+popup().popup--login#popup-login
+		._title Вход
+		+formBlockLogin()
+
+mixin popupCall(data)
+	+popup().popup--call#popup-call
+		._title
+		+formBlockCall()
+
+mixin popupDirector(data)
+	+popup().popup--director#popup-director
+		._title оставить сообщение директору
+		+formBlockMessage().form-block--director
+
